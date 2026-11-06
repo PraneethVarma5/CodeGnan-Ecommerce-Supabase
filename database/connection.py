@@ -25,6 +25,18 @@ class CompatibleConnection(extensions.connection):
 def DatabaseConnction():
     try:
         database_url = os.getenv("DATABASE_URL")
+        print("DATABASE_URL present:", bool(database_url))
+        print(
+            "DATABASE_URL has PostgreSQL scheme:",
+            bool(database_url) and database_url.startswith(
+                ("postgresql://", "postgres://")
+            )
+        )
+        print(
+            "DATABASE_URL contains placeholder:",
+            database_url == "Your_DB_URL"
+        )
+        print("DATABASE_URL length:", len(database_url or ""))
 
         if not database_url:
             raise RuntimeError("DATABASE_URL is missing from .env")
