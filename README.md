@@ -705,7 +705,7 @@ Replace the placeholders with your own Supabase connection details.
 If your database password contains special characters such as:
 
 - @  = %40
-- #  = %23
+- /# =%23
 - %  = %25
 - /  = %2F
 - :  = %3A
